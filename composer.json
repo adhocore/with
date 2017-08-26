@@ -1,0 +1,31 @@
+{
+    "name": "adhocore/with",
+    "description": "With provides fluent object like fluent interface for scalars and non objects",
+    "type": "library",
+    "keywords": [
+        "fluent", "scalar-objects", "scalar-methods", "with"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jitendra Adhikari",
+            "email": "jiten.adhikary@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ahc\\With\\": "src/"
+        },
+        "files": ["src/vvith.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ahc\\With\\Test\\": "tests/"
+        }
+    },
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7.0"
+    }
+}

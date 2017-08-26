@@ -26,8 +26,8 @@ $fun = with($val) // OR (new With($val))
 echo $fun(); // gives 41!
 
 // Passing value through closures or class methods:
-with($value)->call(function ($val) { return $val; });
-with($value)->call([new SomeClass, 'method']);
+with($value)->via(function ($val) { return $val; });
+with($value)->via([new SomeClass, 'method']);
 ```
 
 ## Why

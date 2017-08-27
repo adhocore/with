@@ -1,6 +1,6 @@
 {
     "name": "adhocore/with",
-    "description": "With provides fluent object like fluent interface for scalars and non objects",
+    "description": "With provides object like fluent interface for scalars and non objects",
     "type": "library",
     "keywords": [
         "fluent", "scalar-objects", "scalar-methods", "with"

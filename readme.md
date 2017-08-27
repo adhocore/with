@@ -15,15 +15,22 @@ use function Ahc\with;
 // OR
 use Ahc\With\With;
 
-$val = ['a' => 10, 'b' => 12, 'c' => 13];
-$fun = with($val) // OR (new With($val))
+$val  = ['a' => 10, 'b' => 12, 'c' => 13];
+$with = with($val) // OR (new With($val))
     ->array_values()
     // _ at the end means the current value is appended to the supplied arguments (default is prepend).
     ->array_map_(function ($v) { return $v + 2; })
     ->array_sum()
 ;
 
-echo $fun(); // gives 41!
+// Get the final result
+echo $with(); // 41
+
+// Get all the intermediate values all the way from original input to final result!
+list($original, $array_values, $array_map, $array_sum) = $with->stack();
+
+// Just the value of third operation
+$array_map = $with->stack(3-1);
 
 // Passing value through closures or class methods:
 with($value)->via(function ($val) { return $val; });

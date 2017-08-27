@@ -3,13 +3,14 @@
 namespace Ahc\With;
 
 /**
- * With provides fluent object like fluent interface for scalars and non objects.
+ * With provides object like fluent interface for scalars and non objects.
  *
  * @author Jitendra Adhikari <jiten.adhikary@gmail.com>
  */
 class With
 {
     private $thing;
+    private $stack = [];
 
     /**
      * The constructor.
@@ -18,7 +19,7 @@ class With
      */
     public function __construct($thing)
     {
-        $this->thing = $thing;
+        $this->stack[] = $this->thing = $thing;
     }
 
     /**
@@ -41,21 +42,9 @@ class With
             array_unshift($things, $this->thing);
         }
 
-        return new With($method(...$things));
-    }
+        $this->stack[] = $this->thing = $method(...$things);
 
-    /**
-     *
-     * @param  callable $method
-     * @param  array    $things
-     *
-     * @return With
-     */
-    public function via(callable $method, array $things = []): With
-    {
-        array_unshift($things, $this->thing);
-
-        return new With($method(...$things));
+        return $this;
     }
 
     /**
@@ -66,5 +55,34 @@ class With
     public function __invoke()
     {
         return $this->thing;
+    }
+
+    /**
+     * Pass the value via any callable and optionally extra arguments.
+     *
+     * @param  callable $method
+     * @param  array    $things
+     *
+     * @return With
+     */
+    public function via(callable $method, array $things = []): With
+    {
+        array_unshift($things, $this->thing);
+
+        $this->stack[] = $this->thing = $method(...$things);
+
+        return $this;
+    }
+
+    /**
+     * Get the intermediate value(s).
+     *
+     * @param  int|null $pos  The 0-indexed position of a value (optional, returns all value when omitted).
+     *
+     * @return mixed  The value at given position when specified, all values as array otherwise.
+     */
+    public function stack(int $pos = null)
+    {
+        return null === $pos ? $this->stack : $this->stack[$pos];
     }
 }

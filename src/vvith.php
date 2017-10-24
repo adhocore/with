@@ -5,7 +5,7 @@ namespace Ahc;
 /**
  * With function.
  *
- * @param  mixed  $thing
+ * @param mixed $thing
  *
  * @return With\With
  */

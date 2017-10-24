@@ -15,7 +15,7 @@ class With
     /**
      * The constructor.
      *
-     * @param mixed  $thing Any thing (but non-objects preferred).
+     * @param mixed $thing Any thing (but non-objects preferred).
      */
     public function __construct($thing)
     {
@@ -28,8 +28,8 @@ class With
      * By default The initial thing will be first parameter to the method to be called.
      * You can change this behavior by suffixing underscore (_) to the method name.
      *
-     * @param  string $method
-     * @param  array  $things
+     * @param string $method
+     * @param array  $things
      *
      * @return With
      */
@@ -60,8 +60,8 @@ class With
     /**
      * Pass the value via any callable and optionally extra arguments.
      *
-     * @param  callable $method
-     * @param  array    $things
+     * @param callable $method
+     * @param array    $things
      *
      * @return With
      */
@@ -77,9 +77,9 @@ class With
     /**
      * Get the intermediate value(s).
      *
-     * @param  int|null $pos  The 0-indexed position of a value (optional, returns all value when omitted).
+     * @param int|null $pos The 0-indexed position of a value (optional, returns all value when omitted).
      *
-     * @return mixed  The value at given position when specified, all values as array otherwise.
+     * @return mixed The value at given position when specified, all values as array otherwise.
      */
     public function stack(int $pos = null)
     {

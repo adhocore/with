@@ -1,4 +1,12 @@
-## adhocore/with [![build status](https://travis-ci.org/adhocore/with.svg?branch=master)](https://travis-ci.org/adhocore/with)
+## adhocore/with
+
+[![Latest Version](https://img.shields.io/github/release/adhocore/with.svg?style=flat-square)](https://github.com/adhocore/with/releases)
+[![Travis Build](https://img.shields.io/travis/adhocore/with/master.svg?style=flat-square)](https://travis-ci.org/adhocore/with?branch=master)
+[![Scrutinizer CI](https://img.shields.io/scrutinizer/g/adhocore/with.svg?style=flat-square)](https://scrutinizer-ci.com/g/adhocore/with/?branch=master)
+[![Codecov branch](https://img.shields.io/codecov/c/github/adhocore/with/master.svg?style=flat-square)](https://codecov.io/gh/adhocore/with)
+[![StyleCI](https://styleci.io/repos/101482325/shield)](https://styleci.io/repos/101482325)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+
 
 - Objectify scalars and non objects
 - Fluent method chaining instead of nested function calls

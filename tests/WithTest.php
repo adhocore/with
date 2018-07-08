@@ -53,6 +53,11 @@ class WithTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(trim($base64, '=/'), $trimmed);
         $this->assertSame((new Util)->process($trimmed), $processed);
     }
+
+    public function test_vvith()
+    {
+        $this->assertInstanceOf(With::class, with([1]));
+    }
 }
 
 class Util

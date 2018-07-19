@@ -39,19 +39,6 @@ class WithTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertSame($without, $with(), 'with and without should be same');
-
-        list($original, $values, $mapped, $json, $base64, $trimmed, $processed) = $with->stack();
-
-        // The values in the stack
-        $this->assertSame($thing, $original);
-        $this->assertSame(array_values($original), $values);
-        $this->assertSame(array_map(function ($value) {
-            return $value * 2;
-        }, $values), $mapped);
-        $this->assertSame(json_encode($mapped), $json);
-        $this->assertSame(base64_encode($json), $base64);
-        $this->assertSame(trim($base64, '=/'), $trimmed);
-        $this->assertSame((new Util)->process($trimmed), $processed);
     }
 
     public function test_vvith()

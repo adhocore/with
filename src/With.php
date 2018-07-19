@@ -10,7 +10,6 @@ namespace Ahc\With;
 class With
 {
     private $thing;
-    private $stack = [];
 
     /**
      * The constructor.
@@ -19,7 +18,7 @@ class With
      */
     public function __construct($thing)
     {
-        $this->stack[] = $this->thing = $thing;
+        $this->thing = $thing;
     }
 
     /**
@@ -35,14 +34,14 @@ class With
      */
     public function __call(string $method, array $things): With
     {
-        if (substr($method, -1) === '_') {
-            $method   = substr($method, 0, -1);
+        if (\substr($method, -1) === '_') {
+            $method   = \substr($method, 0, -1);
             $things[] = $this->thing;
         } else {
-            array_unshift($things, $this->thing);
+            \array_unshift($things, $this->thing);
         }
 
-        $this->stack[] = $this->thing = $method(...$things);
+        $this->thing = $method(...$things);
 
         return $this;
     }
@@ -67,22 +66,10 @@ class With
      */
     public function via(callable $method, array $things = []): With
     {
-        array_unshift($things, $this->thing);
+        \array_unshift($things, $this->thing);
 
-        $this->stack[] = $this->thing = $method(...$things);
+        $this->thing = $method(...$things);
 
         return $this;
-    }
-
-    /**
-     * Get the intermediate value(s).
-     *
-     * @param int|null $pos The 0-indexed position of a value (optional, returns all value when omitted).
-     *
-     * @return mixed The value at given position when specified, all values as array otherwise.
-     */
-    public function stack(int $pos = null)
-    {
-        return null === $pos ? $this->stack : $this->stack[$pos];
     }
 }

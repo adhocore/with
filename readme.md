@@ -34,12 +34,6 @@ $with = with($val) // OR (new With($val))
 // Get the final result
 echo $with(); // 41
 
-// Get all the intermediate values all the way from original input to final result!
-list($original, $array_values, $array_map, $array_sum) = $with->stack();
-
-// Just the value of third operation
-$array_map = $with->stack(3-1);
-
 // Passing value through closures or class methods:
 with($value)->via(function ($val) { return $val; });
 with($value)->via([new SomeClass, 'method']);

@@ -3,10 +3,11 @@
 namespace Ahc\With\Test;
 
 use Ahc\With\With;
+use PHPUnit\Framework\TestCase;
 use function Ahc\with;
 
 /** @coversDefaultClass \Ahc\With\With */
-class WithTest extends \PHPUnit_Framework_TestCase
+class WithTest extends TestCase
 {
     public function testWith()
     {

@@ -11,9 +11,9 @@
 
 namespace Ahc\With\Test;
 
+use function Ahc\with;
 use Ahc\With\With;
 use PHPUnit\Framework\TestCase;
-use function Ahc\with;
 
 /** @coversDefaultClass \Ahc\With\With */
 class WithTest extends TestCase

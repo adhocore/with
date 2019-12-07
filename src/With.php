@@ -41,7 +41,7 @@ class With
      *
      * @return With
      */
-    public function __call(string $method, array $things): With
+    public function __call(string $method, array $things)
     {
         if (\substr($method, -1) === '_') {
             $method   = \substr($method, 0, -1);
